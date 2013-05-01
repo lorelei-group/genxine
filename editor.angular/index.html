@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Map Editor</title>
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet/less" type="text/css" href="less/main.less">
+		<script type="text/javascript" src="js/lib/less.js"></script>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		<script type="text/javascript" src="js/lib/underscore.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-2.0.0.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-ui-1.10.2.custom.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+	<body ng-app="app">
+		<canvas></canvas>
+
+		<aside>
+			<div id="layers" class="tool" ng-controller="LayersCtrl">
+				<div class="title">
+					Layers
+					<button class="add" ng-click="add()">+</button>
+				</div>
+				<div class="list">
+					<div class="layer">
+						<input type="checkbox" checked ng-model="layers.entities.visible"> entities
+					</div>
+					<ul>
+						<li class="layer" ng-repeat="layer in layers">
+							<input type="checkbox" checked ng-model="layer.visible">
+							{{ layer.name }}
+							<button class="remove" ng-hide="layer.readonly">x</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="properties" class="tool" ng-controller="PropertiesCtrl">
+				<div class="title">
+					Properties
+					<button class="add" ng-click="add()">+</button>
+				</div>
+				<ul>
+					<li class="property" ng-repeat="property in properties">
+						<span class="name">{{ property.name }}</span>
+						<button class="remove">x</button>
+						<input type="text" class="value" ng-model="property.value">
+					</li>
+				</ul>
+			</div>
+		</aside>
+	</body>
+</html>

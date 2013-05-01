@@ -1,0 +1,64 @@
+@import "reset.less";
+@import "flex.prefix.less";
+//@import "jquery-ui-1.10.2.custom.less";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 12px;
+	font-family: 'Arial', 'Verdana';
+}
+
+.hidden {
+	display: none !important;
+}
+
+@sidebarWidth: 125px;
+
+#loader {
+	background-color: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: ~"calc(100% - @{sidebarWidth})";
+}
+
+aside {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: @sidebarWidth;
+
+	button {
+		float: right;
+		width: 13px;
+		height: 13px;
+		margin-right: 5px;
+	}
+
+	#layers {
+		.layer { cursor: default; }
+	}
+
+	#properties {
+		.property {
+			clear: both;
+
+			input[type=text] {
+				float: right;
+				width: 50px;
+			}
+		}
+	}
+}

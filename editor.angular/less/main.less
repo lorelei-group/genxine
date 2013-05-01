@@ -1,0 +1,75 @@
+@import "reset.less";
+@import "flex.prefix.less";
+//@import "jquery-ui-1.10.2.custom.less";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 12px;
+	font-family: 'Arial', 'Verdana';
+	background-color: #111213;
+	color: #fdfeff;
+}
+
+.hidden {
+	display: none !important;
+}
+
+@sidebarWidth: 125px;
+
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: ~"calc(100% - @{sidebarWidth})";
+}
+
+aside {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: @sidebarWidth;
+
+	.tool {
+		padding-top: 20px;
+
+		button {
+			float: right;
+			width: 13px;
+			height: 13px;
+			border: 1px solid #444;
+		}
+
+		.title {
+			padding: 5px;
+			font-weight: bold;
+			padding-right: 0;
+		}
+	}
+
+	#layers .layer {
+		clear: both;
+		cursor: default;
+
+		input[type=checkbox] {
+
+		}
+	}
+
+	#properties .property {
+		clear: both;
+		text-align: right;
+
+		input[type=text] {
+			float: right;
+			width: 50px;
+			padding: 0;
+			border-width: 1px;
+			padding-left: 2px;
+			margin: 0 5px;
+		}
+	}
+}

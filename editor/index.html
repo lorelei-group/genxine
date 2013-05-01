@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Map Editor</title>
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet/less" type="text/css" href="less/main.less">
+		<script type="text/javascript" src="js/lib/less.js"></script>
+
+
+		<script type="text/template" id="layer">
+			<input type="checkbox" checked>
+			{{ name }}
+			{{#unless readonly }}
+				<button class="remove">x</button>
+			{{/unless}}
+		</script>
+
+		<script type="text/template" id="property">
+			<span class="name">{{ name }}</span>
+			<button class="remove">x</button>
+			<input type="text" class="value" value="{{ value }}">
+		</script>
+
+	</head>
+	<body>
+
+		<canvas></canvas>
+
+		<aside>
+			<div id="layers">
+				<div class="title">
+					Layers
+					<button class="add">+</button>
+				</div>
+				<div class="list">
+					<div class="sortable"></div>
+				</div>
+			</div>
+
+			<div id="properties">
+				<div class="title">
+					Properties
+					<button class="add">+</button>
+				</div>
+				<div class="list"></div>
+			</div>
+		</aside>
+
+		<div id="loader"></div>
+
+		<div id="scripts" style="display:none">
+			<script type="text/javascript" src="js/lib/underscore.js"></script>
+			<script type="text/javascript" src="js/lib/jquery-2.0.0.js"></script>
+			<script type="text/javascript" src="js/lib/handlebars.js"></script>
+			<script type="text/javascript" src="js/lib/backbone.js"></script>
+			<script type="text/javascript" src="js/lib/jquery-ui-1.10.2.custom.js"></script>
+			<script data-main="js/init" src="js/lib/require.js"></script>
+		</div>
+	</body>
+</html>
